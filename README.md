@@ -1,97 +1,180 @@
-# SB Stocks - Full Stack Paper Trading Web Application
+📈 SB Stocks – Full Stack Paper Trading Platform
 
-SB Stocks is a full-stack web application designed for stock market enthusiasts to simulate trading US stocks in real-time using virtual funds ($0 default wallet balance, which can be topped up via a deposit panel). 
+A full-stack stock market simulation platform that allows users to practice trading using virtual funds in a realistic market environment. Users can buy and sell stocks, track portfolios, analyze price trends, manage transactions, and monitor performance through an interactive dashboard.
 
-The platform features high-fidelity price fluctuations, historical charts, order tracking, portfolio holdings, wallet deposit/withdrawal mechanisms, and an admin dashboard.
+🌐 Live Demo: https://sb-stocks-sigma.vercel.app
+⚙️ Backend API: https://sb-stocks-production.up.railway.app
 
----
-
-## 🛠️ Technology Stack
-- **Frontend:** React.js, Vite, Axios, Chart.js, React Router, React Toastify, Vanilla CSS (clean dashboard theme).
-- **Backend:** Node.js, Express.js, JWT Authentication, Bcrypt password hashing.
-- **Database:** MongoDB (using Mongoose schemas).
-
----
-
-## 📂 Project Structure
-```
+🚀 Features
+👤 User Features
+User Registration & Login (JWT Authentication)
+Secure Password Hashing with Bcrypt
+Portfolio Management
+Buy & Sell Stocks
+Transaction History
+Virtual Wallet Management
+Deposit & Withdrawal Simulator
+Real-Time Stock Price Updates
+Watchlist Dashboard
+Interactive Stock Charts
+📊 Market Simulation
+Dynamic stock price fluctuations
+Multiple US stock listings
+Historical price tracking
+Live market updates
+Portfolio valuation tracking
+🔐 Authentication & Security
+JWT-based authentication
+Protected routes
+Role-based authorization
+Secure password storage
+🛠️ Admin Features
+User Management
+Order Monitoring
+Transaction Logs
+Stock Management Dashboard
+Administrative Analytics
+🏗️ Tech Stack
+Frontend
+React.js
+Vite
+React Router DOM
+Axios
+Chart.js
+React Toastify
+Context API
+CSS3
+Backend
+Node.js
+Express.js
+JWT Authentication
+Bcrypt.js
+Database
+MongoDB Atlas
+Mongoose ODM
+Deployment
+Frontend: Vercel
+Backend: Railway
+Database: MongoDB Atlas
+📂 Project Structure
 sb-stocks/
-├── client/                      # Frontend component (Vite + React)
+│
+├── client/
 │   ├── public/
 │   ├── src/
-│   │   ├── assets/              # Premium vectors and images
-│   │   ├── components/          # Reusable cards & layout components (Login, Register, Navbar)
-│   │   ├── context/             # Global Auth & Transaction Context (GeneralContext)
-│   │   ├── pages/               # Views (Landing, Home, StockChart, Portfolio, History, Profile)
-│   │   │   └── admin/           # Admin pages (Admin, Users, AllOrders, AllTransactions, AdminStockChart)
-│   │   ├── App.jsx              # Routing rules
-│   │   ├── index.css            # Styling sheet (dashboard theme)
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   │   └── admin/
+│   │   ├── App.jsx
+│   │   ├── index.css
 │   │   └── main.jsx
-│   ├── index.html
 │   ├── package.json
 │   └── vite.config.js
 │
-└── server/                      # Backend component (Express + Mongoose)
-    ├── config/
-    │   └── db.js                # Database connection
-    ├── controllers/             # Request handlers (user, stock, order, transaction)
-    ├── middlewares/
-    │   └── authMiddleware.js    # JWT protectors
-    ├── models/                  # Schemas (userModel, stockSchema, transactionModel, orderSchema)
-    ├── Routes/                  # Router bindings (userRoute, stockRoute, orderRoute, transactionRoute)
-    ├── .env                     # Server environment variables
-    ├── index.js                 # Entry point (running simulation ticks)
-    ├── Schemas.js               # Central exports for schemas
-    └── verify_server.js         # Backend compile check script
-```
+├── server/
+│   ├── config/
+│   ├── controllers/
+│   ├── middlewares/
+│   ├── models/
+│   ├── Routes/
+│   ├── index.js
+│   └── verify_server.js
+│
+└── README.md
+📸 Application Modules
+Landing Page
+Introduction to platform
+Login & Registration
+Dashboard
+Trending Stocks
+Watchlist
+Market Overview
+Stock Details
+Real-Time Price Data
+Historical Charts
+Trading Interface
+Portfolio
+Holdings Overview
+Investment Performance
+Profit/Loss Tracking
+Transaction History
+Buy/Sell Records
+Wallet Activity
+Admin Dashboard
+User Management
+Orders Management
+Transactions Monitoring
+⚡ Installation & Setup
+Prerequisites
+Node.js (v16+)
+MongoDB Atlas Account or Local MongoDB
+Git
+Clone Repository
+git clone https://github.com/IllaVenkatesh/sb-stocks.git
+cd sb-stocks
+Backend Setup
+cd server
+npm install
 
----
+Create .env
 
-## 🚀 How to Run the Project Locally
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
 
-### Prerequisites
-- Make sure [Node.js](https://nodejs.org/) (v16 or above) and `npm` are installed.
-- Ensure [MongoDB](https://www.mongodb.com/) is installed and running locally.
+Run Server
 
-### Setup Instructions
+npm run dev
 
-1. **Open the Project Folder:**
-   Open the root `sb-stocks` directory in your IDE/Code Editor (such as Visual Studio Code).
+Server runs on:
 
-2. **Run the Backend Server:**
-   - Open a terminal and navigate to the `server` folder:
-     ```bash
-     cd server
-     ```
-   - Install dependencies:
-     ```bash
-     npm install
-     ```
-   - Run in development mode (with hot reloading via `nodemon`):
-     ```bash
-     npm run dev
-     ```
-   - The server will start on port `5000` and connect to the local MongoDB database.
+http://localhost:5000
+Frontend Setup
+cd client
+npm install
+npm run dev
 
-3. **Run the Frontend Client:**
-   - Open a second terminal window and navigate to the `client` folder:
-     ```bash
-     cd client
-     ```
-   - Install dependencies:
-     ```bash
-     npm install
-     ```
-   - Start the Vite development server:
-     ```bash
-     npm run dev
-     ```
-   - Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+Frontend runs on:
 
----
+http://localhost:3000
+🔌 API Endpoints
+Authentication
+POST /api/users/register
+POST /api/users/login
+Stocks
+GET /api/stocks/list
+GET /api/stocks/trending
+GET /api/stocks/:symbol
+Orders
+POST /api/orders/buy
+POST /api/orders/sell
+GET /api/orders/history
+Transactions
+GET /api/transactions
+POST /api/transactions/deposit
+POST /api/transactions/withdraw
+📈 Future Enhancements
+Real Stock Market API Integration
+Candlestick Charts
+Watchlist Customization
+Email Notifications
+Portfolio Analytics
+AI-Based Stock Insights
+Multi-Currency Support
+Dark Mode
+👨‍💻 Developer
 
-## 💡 Key Features of the Simulation
-- **Live Stock Ticks:** The server runs an in-memory background loop that fluctuates asset prices (TSLA, NVDA, AAPL, MSFT, etc.) every 4 seconds. The frontend polls these updates instantly.
-- **Deposit & Withdrawal:** Since users register with a $0 balance, they can visit the **Profile** page to top up virtual funds (via net banking or IMPS simulator) before trading.
-- **Interactive Graphs:** Detailed charts rendering simulated historical prices are generated using Chart.js on the **Stock Details** page.
-- **Role-Based Views:** Registered accounts marked as `admin` have access to administrative views (Users lists, All Orders logs, All Transactions logs, and admin stock browser).
+Venkatesh Illa
+
+GitHub: https://github.com/IllaVenkatesh
+LinkedIn: https://www.linkedin.com/in/illa-venkatesh/
+⭐ Project Highlights
+Full-Stack MERN Application
+JWT Authentication & Authorization
+MongoDB Atlas Integration
+Railway Backend Deployment
+Vercel Frontend Deployment
+Responsive UI
+Real-Time Stock Simulation Engine
